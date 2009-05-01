@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean abstract="true" name="mailConfiguration">
+        <property name="hostname" value="localhost"/>
+        <property name="port" value="2525"/>
+    </bean>
+
+    <bean id="localMailServer"
+          class="org.subethamail.wiser.Wiser" init-method="start" destroy-method="stop"
+          parent="mailConfiguration"/>
+
+    <bean class="nl.jteam.samples.test.JavaMailSenderReconfigurer"
+          parent="mailConfiguration"/>
+
+</beans>
