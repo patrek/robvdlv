@@ -27,8 +27,9 @@ public class SimpleOrderManagerIntegrationTest {
     protected Wiser localMailServer;
 
     @Test
-    public void testPlaceOrder() throws Exception {
+    public void sendsNotificationEmailWhenOrderIsPlaced() throws Exception {
         Order order = new Order(1L, new Customer("Jane", "jane@volkswagen.com"));
+
         simpleOrderManager.placeOrder(order);
 
         List<WiserMessage> messages = localMailServer.getMessages();

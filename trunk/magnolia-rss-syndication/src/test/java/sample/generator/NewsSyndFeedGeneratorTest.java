@@ -40,7 +40,7 @@ public class NewsSyndFeedGeneratorTest {
     }
 
     @Test
-    public void testSetFeedInfo() {
+    public void setsFeedInformation() {
         SyndFeed syndFeed = new SyndFeedImpl();
 
         generator.setFeedInfo(syndFeed);
@@ -51,7 +51,7 @@ public class NewsSyndFeedGeneratorTest {
     }
 
     @Test
-    public void testLoadFeedEntries() {
+    public void loadsFeedEntriesFromRepository() {
         generator.setMagnoliaTemplate(mockMagnoliaTemplate);
 
         final List<SyndEntry> expectedEntries = emptyList();
@@ -66,7 +66,7 @@ public class NewsSyndFeedGeneratorTest {
     }
 
     @Test
-    public void testNewsMapper() throws RepositoryException {
+    public void mapsNewsItemFromRepositoryToSyndEntry() throws RepositoryException {
         Content mockContent = createMock("mockContent", Content.class);
         NodeData mockTitleData = createMock("mockTitleData", NodeData.class);
         NodeData mockDateData = createMock("mockDateData", NodeData.class);
