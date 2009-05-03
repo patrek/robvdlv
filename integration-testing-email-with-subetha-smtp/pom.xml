@@ -5,10 +5,23 @@
 
     <groupId>nl.jteam.samples.subetha</groupId>
     <artifactId>subetha</artifactId>
-    <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
     <name>subetha</name>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
