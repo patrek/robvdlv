@@ -6,6 +6,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import static java.lang.String.*;
 
@@ -41,12 +42,12 @@ public class JavaMailSenderReconfigurer implements BeanPostProcessor {
     }
 
     public void setHostname(String hostname) {
-        Assert.notNull(hostname, "Host must not be null");
+        Assert.isTrue(StringUtils.hasText(hostname), "Hostname cannot be blank");
         this.hostname = hostname;
     }
 
     public void setPort(int port) {
-        Assert.notNull(port, "Port must not be null");
+        Assert.isTrue(port > 0, "Port must be greater than 0");
         this.port = port;
     }
 }
