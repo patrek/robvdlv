@@ -66,6 +66,10 @@ public class NewsSyndFeedGenerator extends AbstractSyndFeedGenerator {
      */
     /*default*/ static class NewsMapper implements ContentMapper<SyndEntry> {
 
+        /**
+         * {@inheritDoc}
+         */
+        @Override
         public SyndEntry map(Content content) throws RepositoryException {
             SyndEntry entry = new SyndEntryImpl();
             entry.setTitle(content.getNodeData("title").getString());
