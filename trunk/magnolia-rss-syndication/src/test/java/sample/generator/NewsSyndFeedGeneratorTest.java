@@ -4,18 +4,19 @@ import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.feed.synd.SyndFeedImpl;
 import info.magnolia.cms.core.Content;
-import static info.magnolia.cms.core.ItemType.*;
+import static info.magnolia.cms.core.ItemType.CONTENTNODE;
 import info.magnolia.cms.core.NodeData;
 import info.magnolia.module.rssaggregator.util.MagnoliaTemplate;
 import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import org.junit.Before;
 import org.junit.Test;
-import static sample.generator.NewsSyndFeedGenerator.*;
+import static sample.generator.NewsSyndFeedGenerator.MAPPER;
 
 import javax.jcr.RepositoryException;
 import java.util.Calendar;
-import static java.util.Collections.*;
+import static java.util.Collections.emptyList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -32,10 +33,9 @@ public class NewsSyndFeedGeneratorTest {
     private MagnoliaTemplate mockMagnoliaTemplate;
 
     @Before
-    public void setUp() {
+    public void before() {
         generator = new NewsSyndFeedGenerator();
         mapper = new NewsSyndFeedGenerator.NewsMapper();
-
         mockMagnoliaTemplate = createMock("mockMagnoliaTemplate", MagnoliaTemplate.class);
     }
 
@@ -53,8 +53,7 @@ public class NewsSyndFeedGeneratorTest {
     @Test
     public void loadsFeedEntriesFromRepository() {
         generator.setMagnoliaTemplate(mockMagnoliaTemplate);
-
-        final List<SyndEntry> expectedEntries = emptyList();
+        List<SyndEntry> expectedEntries = emptyList();
 
         expect(mockMagnoliaTemplate.xpathQueryForList("website", "/jcr:root/home/newsitems/*", CONTENTNODE, MAPPER))
                 .andReturn(expectedEntries);
