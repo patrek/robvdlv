@@ -1,10 +1,6 @@
 package sample.generator;
 
-import com.sun.syndication.feed.synd.SyndContent;
-import com.sun.syndication.feed.synd.SyndContentImpl;
-import com.sun.syndication.feed.synd.SyndEntry;
-import com.sun.syndication.feed.synd.SyndEntryImpl;
-import com.sun.syndication.feed.synd.SyndFeed;
+import com.sun.syndication.feed.synd.*;
 import info.magnolia.cms.core.Content;
 import info.magnolia.cms.core.ItemType;
 import info.magnolia.cms.link.LinkResolverImpl;
@@ -19,6 +15,8 @@ import java.util.List;
  * Generates a {@link SyndFeed} based on newsitems defined on the news page.
  *
  * @author Rob van der Linden Vooren
+ * @see info.magnolia.module.rssaggregator.util.MagnoliaTemplate
+ * @see info.magnolia.module.rssaggregator.util.ContentMapper
  */
 public class NewsSyndFeedGenerator extends AbstractSyndFeedGenerator {
 
@@ -63,6 +61,9 @@ public class NewsSyndFeedGenerator extends AbstractSyndFeedGenerator {
         this.magnoliaTemplate = magnoliaTemplate;
     }
 
+    /**
+     * Maps a {@link Content} node from the Repository to a {@link SyndEntry} instance.
+     */
     /*default*/ static class NewsMapper implements ContentMapper<SyndEntry> {
 
         public SyndEntry map(Content content) throws RepositoryException {
