@@ -3,7 +3,6 @@ package sample.generator;
 import com.sun.syndication.feed.synd.SyndEntry;
 import info.magnolia.cms.core.Content;
 import info.magnolia.cms.core.NodeData;
-import info.magnolia.module.rssaggregator.util.MagnoliaTemplate;
 import static org.easymock.classextension.EasyMock.*;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
