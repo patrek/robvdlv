@@ -4,6 +4,7 @@ import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import info.magnolia.cms.core.ItemType;
 import info.magnolia.module.rssaggregator.generator.AbstractSyndFeedGenerator;
+import info.magnolia.module.rssaggregator.util.ContentMapper;
 import info.magnolia.module.rssaggregator.util.MagnoliaTemplate;
 
 import java.util.List;
@@ -12,8 +13,8 @@ import java.util.List;
  * Generates a {@link SyndFeed} based on newsitems defined on the news page.
  *
  * @author Rob van der Linden Vooren
- * @see info.magnolia.module.rssaggregator.util.MagnoliaTemplate
- * @see info.magnolia.module.rssaggregator.util.ContentMapper
+ * @see MagnoliaTemplate
+ * @see ContentMapper
  */
 public class NewsSyndFeedGenerator extends AbstractSyndFeedGenerator {
 
