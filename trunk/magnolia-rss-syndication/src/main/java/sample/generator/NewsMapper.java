@@ -11,7 +11,9 @@ import info.magnolia.module.rssaggregator.util.ContentMapper;
 import javax.jcr.RepositoryException;
 
 /**
- * Maps a {@link info.magnolia.cms.core.Content} node from the Repository to a {@link com.sun.syndication.feed.synd.SyndEntry} instance.
+ * Maps a {@link Content} node from the Repository to a {@link SyndEntry} instance.
+ *
+ * @author Rob van der Linden Vooren
  */
 class NewsMapper implements ContentMapper<SyndEntry> {
 
