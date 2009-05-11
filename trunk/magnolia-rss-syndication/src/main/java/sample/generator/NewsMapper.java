@@ -1,12 +1,12 @@
 package sample.generator;
 
-import com.sun.syndication.feed.synd.SyndEntry;
-import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndContentImpl;
-import info.magnolia.module.rssaggregator.util.ContentMapper;
+import com.sun.syndication.feed.synd.SyndEntry;
+import com.sun.syndication.feed.synd.SyndEntryImpl;
 import info.magnolia.cms.core.Content;
 import info.magnolia.cms.link.LinkResolverImpl;
+import info.magnolia.module.rssaggregator.util.ContentMapper;
 
 import javax.jcr.RepositoryException;
 
