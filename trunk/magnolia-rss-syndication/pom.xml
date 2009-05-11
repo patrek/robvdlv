@@ -18,6 +18,7 @@
     </build>
 
     <repositories>
+        <!-- just a little trick for folks who don't have the magnolia pom in their local repo yet -->
         <repository>
             <id>magnolia</id>
             <name>Magnolia Repository</name>
