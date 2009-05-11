@@ -1,14 +1,11 @@
 package sample.generator;
 
-import com.sun.syndication.feed.synd.*;
-import info.magnolia.cms.core.Content;
+import com.sun.syndication.feed.synd.SyndEntry;
+import com.sun.syndication.feed.synd.SyndFeed;
 import info.magnolia.cms.core.ItemType;
-import info.magnolia.cms.link.LinkResolverImpl;
 import info.magnolia.module.rssaggregator.generator.AbstractSyndFeedGenerator;
-import info.magnolia.module.rssaggregator.util.ContentMapper;
 import info.magnolia.module.rssaggregator.util.MagnoliaTemplate;
 
-import javax.jcr.RepositoryException;
 import java.util.List;
 
 /**
