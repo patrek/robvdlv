@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * Tests {@link sample.generator.NewsSyndFeedGenerator}.
+ * Tests {@link NewsMapper}.
  *
  * @author Rob van der Linden Vooren
  */
