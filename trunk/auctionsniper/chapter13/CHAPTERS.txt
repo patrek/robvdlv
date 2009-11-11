@@ -1,0 +1,22 @@
+Chapter 11 - Passing the First Test
+
+    In which we write test infrastructure to drive our non-existent application,
+    so that we can make the first test fail. We repeatedly fail the test and fix
+    symptoms, until we have a minimal working application that passes the first
+    test.
+    
+Chapter 12 - Getting Ready to Bid
+
+    In which we write an end-to-end test so that we can make the sniper bid in
+    an auction. We start to interpret the messages in the auction protocol and
+    discover some new classes in the process. We write our first unit tests and
+    then refactor out to a helper class.
+
+Chapter 13 - The Sniper Makes a Bid
+
+    In which we extract an AuctionSniper class and tease out its dependencies.
+    We plug our new class into the rest of the application, using an empty
+    implementation of auction until we're ready to start sending commands.
+    We close the loop back to the auction house with an XMPPAuction class.
+    We continue to carve new types out of the code.
+

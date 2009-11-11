@@ -1,0 +1,25 @@
+________________________________________________________________________________________________________________________
+What is this?
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+This sourcetree contains sourcecode as a result of me working through the in-my-perspective most enlightning book on
+using 'tests' to drive proper object oriented design to date:
+
+    Growing Object-Oriented Software, Guided by Tests
+    By Steve Freeman and Nat Pryce
+
+    http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&s=books&qid=1257969276&sr=8-1
+
+This sourcetree serves the purpose of a quickstart for whomever cares, as the 'official' sourcecode that comes with
+the book is yet to made available.
+    
+Rob van der Linden Vooren
+Twitter: robvdlv
+________________________________________________________________________________________________________________________
+Folder layout
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+\chapterXX - sourcecode as a result of having worked through that chapter of the book
+\lib       - libraries used by the sourcecode
+
+I've used maven2 during working through the book. As some of the libraries are not available through typical maven
+repositories, I have provided a simple batch script (yes, working on WinX) to install the libraries in your local maven
+repository.
