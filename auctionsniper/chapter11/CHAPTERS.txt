@@ -1,0 +1,15 @@
+Chapter 11 - Passing the First Test
+
+    In which we write test infrastructure to drive our non-existent application,
+    so that we can make the first test fail. We repeatedly fail the test and fix
+    symptoms, until we have a minimal working application that passes the first
+    test.
+    
+Chapter 12 - Getting Ready to Bid
+
+    In which we write an end-to-end test so that we can make the sniper bid in
+    an auction. We start to interpret the messages in the auction protocol and
+    discover some new classes in the process. We write our first unit tests and
+    then refactor out to a helper class.
+
+    

@@ -1,0 +1,10 @@
+--------------------------------------------------------------------------------
+TO DO
+--------------------------------------------------------------------------------
+[x] single item - join, lose without bidding
+[ ] single item - join, bid & lose
+[ ] single item - join, bid & win
+[ ] single item - join, show price details
+[ ] multiple items
+[ ] add new items through the GUI
+[ ] stop bidding at stop price
