@@ -1,11 +1,9 @@
 package nl.ddd.eventbus;
 
-import java.util.List;
-import java.util.Map;
+import nl.ddd.eventstorage.Event;
 
 import javax.annotation.Resource;
-
-import nl.ddd.eventstorage.Event;
+import java.util.List;
 
 /**
  * @author Erik Pragt
@@ -13,9 +11,13 @@ import nl.ddd.eventstorage.Event;
 public class ReportingEventBus implements EventBus {
 
     @Resource
-    private Map<Event, EventHandler> eventHandlers;
+    private EventHandlerResolver eventHandlerResolver;
 
     @Override
     public void publishEvents(List<Event> changes) {
+        for (Event event : changes) {
+            EventHandler handler = eventHandlerResolver.resolveEventHandler(event);
+            handler.handle(event);
+        }
     }
 }

@@ -1,14 +1,13 @@
 package nl.ddd.commandhandler;
 
-import javax.annotation.Resource;
-
 import nl.ddd.command.AddBookCommand;
+import static nl.ddd.domain.BookBuilder.*;
 import nl.ddd.domain.Catalogue;
 import nl.ddd.eventbus.EventBus;
 import nl.ddd.eventstorage.EventStorage;
 import nl.ddd.repository.CatalogueRepository;
 
-import static nl.ddd.domain.BookBuilder.aBook;
+import javax.annotation.Resource;
 
 public class AddbookCommandHandler implements CommandHandler<AddBookCommand> {
 
@@ -33,8 +32,7 @@ public class AddbookCommandHandler implements CommandHandler<AddBookCommand> {
     }
 
     private void publishEvents(Catalogue catalogue) {
-        eventBus.publishEvents(catalogue.getChanges());
-
         eventStorage.saveEventsForEventProvider(catalogue);
+        eventBus.publishEvents(catalogue.getChanges());
     }
 }
