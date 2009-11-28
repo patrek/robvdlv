@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS `cqs_dev`;
+DROP DATABASE IF EXISTS `cqrs_dev`;
 
-CREATE DATABASE `cqs_dev`
+CREATE DATABASE `cqrs_dev`
   DEFAULT CHARACTER SET `utf8`
   DEFAULT COLLATE `utf8_general_ci`;
 
-USE `cqs_dev`;
+USE `cqrs_dev`;
