@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nl.ddd</groupId>
-    <artifactId>cqs</artifactId>
+    <artifactId>cqrs</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Command Query Separation</name>
-    <description>Prototype of an CQS Architecture</description>
+    <name>Command Query Responsibility Segregation</name>
+    <description>Sample CQRS Architecture</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -107,7 +107,7 @@
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <url>jdbc:mysql://localhost:3306/cqs_dev</url>
+                            <url>jdbc:mysql://localhost:3306/cqrs_dev</url>
                             <srcFiles>
                                 <srcFile>${basedir}/db/create_tables.sql</srcFile>
                             </srcFiles>
