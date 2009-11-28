@@ -85,8 +85,9 @@
                     <password>build</password>
                 </configuration>
                 <executions>
+                    <!-- eventstorage -->
                     <execution>
-                        <id>create-build-database</id>
+                        <id>create-eventstorage-database</id>
                         <phase>process-test-resources</phase>
                         <goals>
                             <goal>execute</goal>
@@ -96,20 +97,49 @@
                             <url>jdbc:mysql://localhost:3306/</url>
                             <autocommit>true</autocommit>
                             <srcFiles>
-                                <srcFile>${basedir}/db/create_database_dev.sql</srcFile>
+                                <srcFile>${basedir}/db/eventstorage/create_database_dev.sql</srcFile>
                             </srcFiles>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>populate-build-database</id>
+                        <id>populate-eventstorage-database</id>
                         <phase>process-test-resources</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <url>jdbc:mysql://localhost:3306/cqrs_dev</url>
+                            <url>jdbc:mysql://localhost:3306/cqrs_eventstorage_dev</url>
                             <srcFiles>
-                                <srcFile>${basedir}/db/create_tables.sql</srcFile>
+                                <srcFile>${basedir}/db/eventstorage/create_tables.sql</srcFile>
+                            </srcFiles>
+                        </configuration>
+                    </execution>
+                    <!-- reporting -->
+                    <execution>
+                        <id>create-reporting-database</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Connect to NO specific database when (re)creating the build database itself -->
+                            <url>jdbc:mysql://localhost:3306/</url>
+                            <autocommit>true</autocommit>
+                            <srcFiles>
+                                <srcFile>${basedir}/db/reporting/create_database_dev.sql</srcFile>
+                            </srcFiles>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>populate-reporting-database</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <url>jdbc:mysql://localhost:3306/cqrs_reporting_dev</url>
+                            <srcFiles>
+                                <srcFile>${basedir}/db/reporting/create_tables.sql</srcFile>
                             </srcFiles>
                         </configuration>
                     </execution>
