@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import nl.ddd.command.AddBookCommand;
 import nl.ddd.domain.Catalogue;
+import nl.ddd.eventbus.EventBus;
 import nl.ddd.eventstorage.EventStorage;
 import nl.ddd.repository.CatalogueRepository;
 
@@ -15,6 +16,9 @@ public class AddbookCommandHandler implements CommandHandler<AddBookCommand> {
     private CatalogueRepository repository;
 
     @Resource
+    private EventBus eventBus;
+
+    @Resource
     private EventStorage eventStorage;
 
     public void execute(AddBookCommand command) {
@@ -24,6 +28,13 @@ public class AddbookCommandHandler implements CommandHandler<AddBookCommand> {
                 .withTitle(command.getTitle())
                 .withAuthor(command.getAuthor())
                 .build());
+
+        publishEvents(catalogue);
+    }
+
+    private void publishEvents(Catalogue catalogue) {
+        eventBus.publishEvents(catalogue.getChanges());
+
         eventStorage.saveEventsForEventProvider(catalogue);
     }
 }
