@@ -1,15 +1,16 @@
 package nl.ddd.domain;
 
-import static nl.ddd.domain.BookBuilder.*;
-import nl.ddd.event.BookAddedEvent;
-import nl.ddd.event.CatalogusCreatedEvent;
-import nl.ddd.eventstorage.Event;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+
+import nl.ddd.event.BookAddedEvent;
+import nl.ddd.event.CatalogusCreatedEvent;
+import nl.ddd.eventstorage.Event;
+
+import static nl.ddd.domain.BookBuilder.aBook;
 
 public class Catalogue implements AggregateRoot {
 
@@ -19,7 +20,7 @@ public class Catalogue implements AggregateRoot {
 
     public Catalogue(UUID uuid) {
         this.uuid = uuid;
-        events.add(new CatalogusCreatedEvent());
+        events.add(new CatalogusCreatedEvent(uuid));
     }
 
     @Override

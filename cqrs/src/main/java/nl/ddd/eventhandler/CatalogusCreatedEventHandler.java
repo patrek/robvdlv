@@ -1,10 +1,11 @@
 package nl.ddd.eventhandler;
 
-import nl.ddd.event.CatalogusCreatedEvent;
-import nl.ddd.eventbus.EventHandler;
+import javax.annotation.Resource;
+
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
-import javax.annotation.Resource;
+import nl.ddd.event.CatalogusCreatedEvent;
+import nl.ddd.eventbus.EventHandler;
 
 public class CatalogusCreatedEventHandler implements EventHandler<CatalogusCreatedEvent> {
 
@@ -13,6 +14,6 @@ public class CatalogusCreatedEventHandler implements EventHandler<CatalogusCreat
 
     @Override
     public void handle(CatalogusCreatedEvent event) {
-
+        jdbcTemplate.update("insert into catalogs(uuid) values (?)", event);
     }
 }
