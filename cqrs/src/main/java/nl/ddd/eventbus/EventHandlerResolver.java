@@ -1,8 +1,6 @@
 package nl.ddd.eventbus;
 
-import nl.ddd.eventstorage.Event;
+public interface EventHandlerResolver<T> {
 
-public interface EventHandlerResolver {
-
-    EventHandler resolveEventHandler(Event event);
+    EventHandler resolveEventHandler(T event);
 }

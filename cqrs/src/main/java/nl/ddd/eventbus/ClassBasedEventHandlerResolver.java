@@ -6,11 +6,11 @@ import org.apache.commons.lang.Validate;
 
 import static java.lang.String.format;
 
-public class EventHandlerResolverImpl implements EventHandlerResolver<Class> {
+public class ClassBasedEventHandlerResolver implements EventHandlerResolver<Class> {
 
     private Map<Class, EventHandler> eventsToHandlers;
 
-    public EventHandlerResolverImpl(Map<Class, EventHandler> eventsToHandlers) {
+    public ClassBasedEventHandlerResolver(Map<Class, EventHandler> eventsToHandlers) {
         Validate.notNull(eventsToHandlers, "EventsToHandlers must not be null");
         this.eventsToHandlers = eventsToHandlers;
     }
