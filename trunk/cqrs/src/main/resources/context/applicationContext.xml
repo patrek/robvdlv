@@ -48,6 +48,27 @@
     <bean id="eventStorage" class="nl.ddd.eventstorage.MySQLEventStorage"/>
 
     <!--=============================================================================================================
+        Eventbus
+        =============================================================================================================-->
+
+    <bean id="eventBus" class="nl.ddd.eventbus.ReportingEventBus"/>
+
+
+    <!--=============================================================================================================
+        Event handlers
+        =============================================================================================================-->
+
+    <bean id="catalogusCreatedEventHandler" class="nl.ddd.eventhandler.CatalogusCreatedEventHandler"/>
+
+    <bean id="eventHandlerResolver" class="nl.ddd.eventbus.ClassBasedEventHandlerResolver">
+        <constructor-arg type="java.util.Map">
+            <map>
+                <entry key="nl.ddd.event.CatalogusCreatedEvent" value-ref="catalogusCreatedEventHandler"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <!--=============================================================================================================
         Data access
         =============================================================================================================-->
 
