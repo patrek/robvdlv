@@ -93,7 +93,7 @@
                         </goals>
                         <configuration>
                             <!-- Connect to NO specific database when (re)creating the build database itself -->
-                            <url>jdbc:mysql://localhost:3306/</url>
+                            <url>jdbc:mysql://127.0.0.1:3306/</url>
                             <autocommit>true</autocommit>
                             <srcFiles>
                                 <srcFile>${basedir}/db/create_database_dev.sql</srcFile>
