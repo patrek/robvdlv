@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:datasource.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--=============================================================================================================
+        Services
+        =============================================================================================================-->
+
+    <bean id="wicketApplication" class="nl.ddd.WicketApplication"/>
+
+    <bean id="amazonLiteFacade" class="nl.ddd.facade.AmazonLiteFacadeImpl"/>
+
+    <bean id="bookService" class="nl.ddd.service.BookServiceImpl"/>
+
+    <bean id="catalogusRepository" class="nl.ddd.repository.CatalogueRepositoryImpl"/>
+
+    <!--=============================================================================================================
+        Command handlers
+        =============================================================================================================-->
+
+    <bean id="addBookCommandHandler" class="nl.ddd.commandhandler.AddbookCommandHandler"/>
+
+    <!--=============================================================================================================
+        Eventstorage
+        =============================================================================================================-->
+
+    <bean id="eventStorage" class="nl.ddd.eventstorage.MySQLEventStorage"/>
+
+    <!--=============================================================================================================
+        Data access
+        =============================================================================================================-->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${datasource.driverClassName}"/>
+        <property name="url" value="${datasource.url}"/>
+        <property name="username" value="${datasource.username}"/>
+        <property name="password" value="${datasource.password}"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>
+    </bean>
+
+</beans>
