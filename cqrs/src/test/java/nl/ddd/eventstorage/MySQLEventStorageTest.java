@@ -12,7 +12,10 @@ import java.io.Serializable;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/context/applicationContext.xml", "classpath:/context/testContext.xml"})
+@ContextConfiguration(locations = {
+        "classpath:/context/applicationContext.xml",
+        "classpath:/context/testContext.xml"}
+)
 @Transactional
 public class MySQLEventStorageTest {
 

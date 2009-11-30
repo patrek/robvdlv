@@ -25,7 +25,7 @@ public class MySQLEventStorage implements EventStorage {
                 return (Event) SerializationUtils.deserialize(inputStream);
             }
         };
-        return jdbcTemplate.query("select data from events where eventprovider_id = ? order by sequence", rowMapper, uuid.toString());
+        return jdbcTemplate.query("select data from event_events where eventprovider_id = ? order by sequence", rowMapper, uuid.toString());
     }
 
     public void saveEventsForEventProvider(EventProvider eventProvider) {
@@ -39,19 +39,19 @@ public class MySQLEventStorage implements EventStorage {
 
     boolean isKnownEventProvider(EventProvider eventProvider) {
         String eventProviderUuid = eventProvider.getUUID().toString();
-        int count = jdbcTemplate.queryForInt("select count(*) from eventproviders where id = ?", eventProviderUuid);
+        int count = jdbcTemplate.queryForInt("select count(*) from event_eventproviders where id = ?", eventProviderUuid);
         return count > 0;
     }
 
     void insertEventRecord(EventProvider eventProvider, Event event) {
         String eventProviderUuid = eventProvider.getUUID().toString();
         Date occurredAt = new Date();
-        jdbcTemplate.update("insert into events (occurred_at,eventprovider_id,data) values (?,?,?)", occurredAt, eventProviderUuid, event);
+        jdbcTemplate.update("insert into event_events (occurred_at, eventprovider_id, data) values (?,?,?)", occurredAt, eventProviderUuid, event);
     }
 
     void insertEventProvider(EventProvider eventProvider) {
         String uuid = eventProvider.getUUID().toString();
         String simpleClassName = eventProvider.getClass().getSimpleName();
-        jdbcTemplate.update("insert into eventproviders (id,version,type) values (?,?,?)", uuid, 0, simpleClassName);
+        jdbcTemplate.update("insert into event_eventproviders (id,version,type) values (?,?,?)", uuid, 0, simpleClassName);
     }
 }
